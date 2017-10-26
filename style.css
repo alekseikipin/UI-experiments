@@ -1,0 +1,154 @@
+.container {
+    margin: 40px;
+}
+
+/* button */
+
+.btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    background: #3A00FF;
+    padding: 10px 40px;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: box-shadow 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 4px 4px 0 #00E1FF, 8px -4px 0 #7A54FF;
+    background: repeating-linear-gradient(
+            #3A00FF,
+            #3A00FF 2px,
+            #2D00C6 3px,
+            #2D00C6 4px
+    );
+    transition: box-shadow 0.3s;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: -10px;
+    right: 8px;
+    bottom: 8px;
+    border: solid #FF3EF2;
+    border-width: 1px 0 0 1px;
+    opacity: 0;
+    transition: opacity 0.3s, left 0.3s, top 0.3s;
+}
+
+.btn:hover::after {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+/*
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 40px;
+    width: 50%;
+    height: 2px;
+    top: 55%;
+    background-color: #ffffff;
+    transform: translateX(-10px);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+*/
+
+.btn:hover::before {
+    transform: translateX(0px);
+    opacity: 1;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.btn:active::after {
+    left: -4px;
+    top: -6px;
+    transition: left 0.3s, top 0.3s;
+}
+
+.btn:active {
+    box-shadow: 2px 2px 0 #00E1FF, 4px -2px 0 #7A54FF;
+    background: repeating-linear-gradient(
+            #2D00C6,
+            #2D00C6 2px,
+            #3A00FF 3px,
+            #3A00FF 4px
+    );
+    transition: box-shadow 0.3s;
+}
+
+.btn:active::before {
+    transform: translateX(10px);
+    transition: transform 0.3s;
+}
+
+/* switch */
+
+label {
+    position: relative;
+    display: inline-block;
+    max-width: 200px;
+    word-wrap: break-word;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+label::before,
+label::after {
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+label::before {
+    top: 9px;
+    left: 120px;
+    width: 38px;
+    height: 0;
+    border-top: 10px solid #FF3EF2;
+    border-radius: 20px;
+}
+
+label::after {
+    top: 6px;
+    left: 120px;
+    width: 12px;
+    height: 12px;
+    background-color: #3A00FF;
+    border: solid 2px #3A00FF;
+    border-radius: 50%;
+    transition-timing-function: ease-in;
+    transition-duration: 200ms;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ label::after {
+    transform: translateX(24px);
+    background: #3A00FF;
+    border-color: #3A00FF;
+}
+
+input[type="checkbox"]:checked ~ label::before {
+    border-top: 10px solid #00E1FF;
+    transition-timing-function: ease-in;
+    transition-duration: 200ms;
+}
+
+/* checkbox */
